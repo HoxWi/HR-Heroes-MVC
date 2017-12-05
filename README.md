@@ -30,3 +30,5 @@ Then save the result carefully as it is your passport for the platform:
   "secretkey": "xyz secret key value",
   "message": "Please save your secret key. It is your passport to access your services."
 }
+
+Live sample at http://hoxwimvcsample.azurewebsites.net/
