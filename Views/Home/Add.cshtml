@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "New resume";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <p class="text-danger">@ViewBag.ErrorMessage</p>
+    <p class="text-success">@ViewBag.SuccessMessage</p>
+</hgroup>
+
+<article>
+        <form method="post" action="/Home/Add">
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" />
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" />
+            </div>
+            <div class="input-group">
+                <label for="resume">Resume</label>
+                <textarea rows="10" class="form-control" name="resume" ></textarea>
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+</article>

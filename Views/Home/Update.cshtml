@@ -1,0 +1,36 @@
+﻿@model HoxWi.Db.SearchResult
+@{
+    ViewBag.Title = "Update resume";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<article>
+         @if (Model.Success)
+         {
+            var item = Model.Results[0];
+
+        <form method="post" action="/Home/Update">
+            <input type="hidden" id="hid" name="hid" value="@item.hid" />
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" value="@item.name"/>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" value="@item.email"/>
+            </div>
+            <div class="input-group">
+                <label for="resume">Resume</label>
+                <textarea rows="10" class="form-control" name="resume">@item.resume</textarea>
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+         }
+         else
+         {
+            <p class="text-danger">@Model.Error</p>
+         }
+</article>

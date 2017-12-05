@@ -1,0 +1,32 @@
+﻿@model dynamic
+@{
+    Layout = null;
+}
+<p> @Model.Header </p>
+
+<ol class="round">
+    @if (Model.Results != null)
+    {
+        foreach (var item in Model.Results)
+        {
+            <li class="one">                
+                <div class="row">
+                    <div class="col col-md-4">
+                        <b> @item.name</b>
+                    </div>
+                    <div class="col col-md-4">
+                        <a href="@item.email"> @item.email</a>
+                    </div>
+                    <div class="col col-md-2">
+                        <a href="/Home/Update/@item.hid">Update</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-12">
+                        <p>@item.resume</p>
+                    </div>
+                </div>
+            </li>
+        }
+    }
+</ol>

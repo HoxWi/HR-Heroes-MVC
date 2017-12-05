@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h3>Search by Description</h3>
+                <p class="text-danger">@ViewBag.ErrorMessage</p>
+                <p class="text-success">@ViewBag.SuccessMessage</p>
+            </hgroup>
+            <p>
+                <input type="text" class="form-control" id="search" placeholder="Search..."/>
+            </p>
+        </div>
+    </section>
+<h3>Results:</h3>
+<div id="results">
+
+</div>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<link href="~/Content/jquery.autocomplete.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.autocomplete.js"></script>
+
+<script>
+    $('#search').keyup(function (e) {
+        var existingString = $("#search").val();
+        if (existingString.length < 3) return; //wasn't enter, not > 2 char
+
+        $.get('/Home/Search?term=' + existingString, function (data) {
+            $('div#results').html(data);
+        });
+    });
+
+</script>
